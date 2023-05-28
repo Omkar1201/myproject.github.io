@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Styles */
+        .loading-animation {
+            animation: spin 1s linear infinite;
+        }
+
+        /* Keyframes */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Styles for Mobile */
+        @media (max-width: 580px) {
+            .tab_conti {
+                flex-direction: column;
+                width: 100%;
+                font-size: 15px;
+
+            }
+            .head{
+                font-size: 30px;
+            }
+            .tab_conti button{
+                width: fit-content;
+                margin: 8px auto;
+                
+            }
+            
+            .search_form {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .text_input {
+                width: 80%;
+            }
+
+            .whether-info {
+                text-align: center;
+            }
+            .cityname{
+                font-size: 35px;
+            }
+            .whether-info .flex {
+                flex-direction: column;
+                height: fit-content;
+                align-items: center;
+            }
+
+            .whether-info .flex img {
+                margin-top: 10px;
+                width: 30px;
+                height: 30px;
+            }
+
+            .whether-info .flex p {
+                margin-top: 5px;
+                /* font-size: 15px; */
+            }
+
+            .whether-info .flex .w-44,
+            .whether-info .flex .w-44.h-36 {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .infoconti{
+                width: 100%;
+                font-size: 20px;
+            }
+            .btnconti{
+                display: flex;
+                flex-direction: column;
+                border: 2px solid black;
+            }
+        }
+    </style>
+    
+</head>
+<body class=" bg-gradient-to-r from-cyan-500 to-blue-500 ...">
+
+    <div class=" p-2">
+        <h1 class="head text-center font-semibold text-4xl font-serif">Whether app</h1>
+        <div class="tab_conti flex w-6/12 m-auto my-10 p-2 justify-around text-lg">
+            <button class="your-whether bg-white bg-opacity-25 text-white py-1 rounded-2xl px-3" data-userwhether>Your whether</button>
+            <button class="searchbtn text-white rounded-2xl px-3" data-searchwether>Search whether</button>
+        </div> 
+
+        <!-- grant location access -->
+        <div class="grant_location p-2 hidden flex-col gap-5 items-center"> 
+            <img src="/locationlogoremovebgpreview.png" alt="" loading="lazy" class="w-10 h-12">
+            <p class="text-2xl font-semibold">Grant location access</p>
+            <p class="text-2xl font-semibold">Allow access to get Information</p>
+            <!-- <button class="grant-location-access border px-4 py-2 bg-white bg-opacity-25 rounded-lg text-white text-lg hover:bg-opacity-70 hover:text-black transition-all duration-200" data-grantacess>Grant Access</button> -->
+        </div>
+
+        <!-- search form -->
+        <form action="" class="search_form justify-center hidden transition-all duration-200" data-searchform>
+            <input placeholder="Search your city...." id="textinput" class="text_input p-2 outline-none w-4/12 bg-white bg-opacity-70 rounded-2xl mb-5" data-searchinput>
+            <button class="form_btn w-10 h-10"><img src="/downloadremovebgpreview.png" alt=""></button>
+        </form>
+
+        <!-- loading container -->
+        <div class=" loading hidden flex-col items-center ">
+            <div class="w-16 h-16 border-t-4 border-r-4 border-blue-300 rounded-full loading-animation"></div>
+            <p class="text-lg font-semibold text-bold">Loading...</p>
+        </div>
+
+
+        <!-- Show whether Information -->
+        <div class="whether-info flex-col flex gap-6 items-center">
+            <!-- city name and flag -->
+            <div class="flex">
+                <p class="cityname text-3xl font-bold text-blue-950">city name</p>
+                <!-- <img datacountryicon src="" alt="image" class="flagimg"> -->
+            </div>
+
+            <p data-whetherdesc class="desc text-2xl font-semibold">desc</p>
+            <img data-whethericon alt="icon" class="descicon w-20">
+            <p data-temp class="temp text-4xl font-semibold ">data-temp</p>
+
+            <div class="infoconti flex p-2 gap-5 text-2xl ">
+                <div class="w-44 h-36 rounded-md border bg-white flex bg-opacity-25 flex-col items-center justify-center gap-2">
+                    <img src="/windsppedremovebgpreview.png" alt="" class="w-10 h-10">
+                    <p>Windspeed</p>
+                    <p data-windspeed class="windspeed">--</p>
+                </div>
+                <div class="w-44 h-36 rounded-md border bg-white flex bg-opacity-25 flex-col items-center justify-center gap-2">
+                    <img src="/humidityremovebgpreview.png" alt="" class="w-15 h-10">
+                    <p>Humidity</p>
+                    <p data-Humidity class="humidity">--</p>
+                </div>
+                <div class="w-44 h-36 rounded-md bg-white bg-opacity-25 border flex flex-col items-center justify-center gap-2">
+                    <img src="/cloudsremovebgpreview.png" alt="" class="w-10 h-10">
+                    <p>cloud</p>
+                    <p data-cloud class="cloud">--</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+
+</html>
